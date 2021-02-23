@@ -8,20 +8,12 @@ namespace Company
 {
     class Meneger_two : Employee, IMenege
     {
-        private IWorker[] _workers; // Список рабочих текущего экземпляра менеджера.
-        public IWorker[] Workers {  // Поле получения доступа к рабочим текущего менеджера.
+        private ListOfWorkers _workers; // Список рабочих текущего экземпляра менеджера.
+        public ListOfWorkers Workers {  // Поле получения доступа к рабочим текущего менеджера.
             get
             {
                 return _workers;
             }
-        }
-        public void addWorker(IWorker worker)
-        {
-
-        }
-        public void removeWorker(IWorker worker)
-        {
-
         }
         public IWorker GetWorker(int index)
         {
@@ -37,7 +29,7 @@ namespace Company
         }
         public Meneger_two()
         {
-            _workers = new IWorker[10];
+            _workers = new ListOfWorkers();
         }
 
 

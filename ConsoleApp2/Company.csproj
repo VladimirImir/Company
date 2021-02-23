@@ -51,6 +51,7 @@
     <Compile Include="Human.cs" />
     <Compile Include="IMenege.cs" />
     <Compile Include="IWorker.cs" />
+    <Compile Include="ListOfWorkers.cs" />
     <Compile Include="ManagerLevel.cs" />
     <Compile Include="Meneger.cs" />
     <Compile Include="Meneger_two.cs" />

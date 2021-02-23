@@ -10,8 +10,8 @@ namespace Company
     {
         void Control();
         void Organize();
-        
-        IWorker[] Workers { get; } // Дать возможность получить  доступ к сотрудникам.
+
+        ListOfWorkers Workers { get; } // Дать возможность получить  доступ к сотрудникам.
 
     }
 }
