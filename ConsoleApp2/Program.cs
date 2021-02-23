@@ -10,6 +10,35 @@ namespace Company
     {
         static void Main(string[] args)
         {
+            Point2D point2D = new Point2D();
+            Console.WriteLine(point2D);
+            point2D++;
+            ++point2D;
+            Console.WriteLine(point2D);
+
+            Console.WriteLine(point2D + new Point2D(15,45));
+
+            Console.WriteLine(point2D + 15);
+            Console.WriteLine(45 + point2D);
+
+            Console.WriteLine(point2D == point2D);
+            Console.WriteLine(point2D != point2D);
+
+            if (point2D)
+            {
+                Console.WriteLine("Точка в положительном простанстве.");
+            }
+            else
+            {
+                Console.WriteLine("Точка в отрицательном простанстве.");
+            }
+
+
+
+
+            // Console.WriteLine(listOfWorkers[listOfWorkers.Workers[5]].Name);
+
+
             ListOfWorkers listOfWorkers = new ListOfWorkers();
             for (int i = 0; i < 25; i++)
             {
@@ -17,12 +46,22 @@ namespace Company
                                                     DateTime.Now, Gender.FAMALE, Nationality.Argentina,
                                                     EducationLevel.Higher, 1000, "Рабоатет."));
             }
-            Console.WriteLine(listOfWorkers);
 
-            for (int i = listOfWorkers.Count - 1; i >= 0; i--)
+            listOfWorkers[5] = new Worker();
+            Console.WriteLine(((Worker)listOfWorkers[5]).Name); // по индексу.
+
+            Console.WriteLine(((Worker)listOfWorkers[listOfWorkers.Workers[5]]).Name);// через ссылку на объект.
+            listOfWorkers[listOfWorkers.Workers[6]] = new Worker();
+            Console.WriteLine(((Worker)listOfWorkers[listOfWorkers.Workers[6]]));
+
+
+
+            //Console.WriteLine(listOfWorkers);
+
+/*            for (int i = listOfWorkers.Count - 1; i >= 0; i--)
             {
                 listOfWorkers.RemoveWorker(listOfWorkers.Workers[i]);
-            }
+            }*/
             /*for (int i = 0; i < 25; i++)
             {
                 listOfWorkers.RemoveWorker(listOfWorkers.Workers[0]);
@@ -30,7 +69,7 @@ namespace Company
 
 
 
-            Console.WriteLine(listOfWorkers);
+            //Console.WriteLine(listOfWorkers);
 
 
             /*            Worker worker = new Worker("Владимир", "Полтавченко", "Русланович", new DateTime(1979, 11, 28),

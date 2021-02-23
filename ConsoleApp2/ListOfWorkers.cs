@@ -108,6 +108,27 @@ namespace Company
             _workers = tmp;
 
         }
-
+        public IWorker this[int index]
+        {
+            get
+            {
+                return _workers[index];
+            }
+            set
+            {
+                _workers[index] = value;
+            }
+        }
+        public IWorker this[IWorker worker]
+        {
+            get
+            {
+                return _workers[this.SearchWorker(worker)];
+            }
+            set
+            {
+                _workers[this.SearchWorker(worker)] = value;
+            }
+        }
     }
 }
