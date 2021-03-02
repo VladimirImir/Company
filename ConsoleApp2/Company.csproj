@@ -43,6 +43,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CalcInt.cs" />
+    <Compile Include="ICalc.cs" />
     <Compile Include="Director.cs" />
     <Compile Include="DirectorLevel.cs" />
     <Compile Include="EducationLevel.cs" />
@@ -52,16 +54,20 @@
     <Compile Include="IMenege.cs" />
     <Compile Include="IWorker.cs" />
     <Compile Include="ListOfWorkers.cs" />
+    <Compile Include="ListOfWorkersEnumerator.cs" />
     <Compile Include="ManagerLevel.cs" />
     <Compile Include="Meneger.cs" />
     <Compile Include="Meneger_two.cs" />
+    <Compile Include="MyTwoParameter.cs" />
     <Compile Include="Nationality.cs" />
     <Compile Include="Point2D.cs" />
+    <Compile Include="Point3D.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tutor.cs" />
     <Compile Include="TutorSpeciality.cs" />
     <Compile Include="Worker.cs" />
+    <Compile Include="WorkerComparer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

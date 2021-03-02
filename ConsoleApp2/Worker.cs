@@ -6,10 +6,17 @@ using System.Threading.Tasks;
 
 namespace Company
 {
+
+    enum CloneNameMethod
+    {
+        Superficial,
+        Complete
+    }
+
     /* Унаследоваться от класс Employee
        Реализовать интерфейс IWorker
     */
-    class Worker : Employee, IWorker
+    internal class Worker : Employee, IWorker, ICloneable, IComparable
     {
         private bool _isWorking;
         private string _workDescription;
@@ -65,5 +72,60 @@ namespace Company
                 $"\n\tStatus Working: {IsWorking}; " + 
                 $"\n\tCurrent Work: {_workDescription}";
         }
+
+        public object Clone()
+        {
+            Console.WriteLine("Задействую клонирование объкта");
+
+            // поверхносного копирования - использовать только если нету ссылочных полей.
+            // полного копирования.
+
+            /*Worker worker = new Worker();
+            worker.Name = this.Name;
+
+
+
+            return worker;*/
+
+            return this.MemberwiseClone(); // Поверхносное копирование.
+        }
+        public object Clone(CloneNameMethod method)
+        {
+            switch (method)
+            {
+                case CloneNameMethod.Superficial:
+                    break;
+                case CloneNameMethod.Complete:
+                    return new Worker(
+                        this.Name,
+                        this.Surname,
+                        this.Patronymic,
+                        this.BirthDate,
+                        this.gender,
+                        this.nationality,
+                        this.educationLevel,
+                        this.Salary,
+                        this.Work()
+                    );
+            }
+            throw new AggregateException("Clone Worker Method incorrect.");
+        }
+        public int CompareTo(object obj)
+        {
+            // Дефолтная сортировка по имени - по ниспаданию
+
+            Worker worker = obj as Worker;
+
+            if(worker != null)
+            {
+                return worker.Name.CompareTo(this.Name);// воспользовался стандартным стринговым комперером.
+            }
+            else
+            {
+                throw new Exception("Incorrect");
+            }
+        }
+
     }
+
 }

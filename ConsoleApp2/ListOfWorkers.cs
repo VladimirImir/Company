@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Company
 {
-    class ListOfWorkers
+    class ListOfWorkers : IEnumerable
     {
         private int _counter = 0;  // кол-во занятых переменных.
         private int _capacity = 8; // кол-во ячеек массива - стартовое.
@@ -71,7 +72,9 @@ namespace Company
         {
             get
             {
-                return _workers;
+                IWorker[] tmp = new IWorker[Count];
+                Array.Copy(_workers, tmp, Count);
+                return tmp;
             }
         }
         // listOfWorkers.RemoveWorkers(listOfWorkers.Workers[0]);
@@ -108,6 +111,12 @@ namespace Company
             _workers = tmp;
 
         }
+
+        public IEnumerator GetEnumerator()
+        {
+            return new ListOfWorkersEnumerator(this);
+        }
+
         public IWorker this[int index]
         {
             get
